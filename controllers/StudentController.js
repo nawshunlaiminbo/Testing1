@@ -15,6 +15,22 @@ const getAllStudents = async (req, res) => {
       res.status(500).json("Error" + error.message);
     });
 };
+
+const getByStudentId = async (req, res) => {
+  await studentdata
+    .findByPk(req.params.id)
+    .then((student) => {
+      if (student) {
+        res.status(200).json(student);
+      } else {
+        res.status(404).json("student not found");
+      }
+    })
+    .catch((err) => {
+      res.status(500).json("Error : " + err);
+    });
+};
+
 const addStudent = async (req, res) => {
   await studentdata
     .findOne({ where: { name: req.body.name } })
@@ -68,6 +84,7 @@ const deleteStudent = async (req, res) => {
 };
 module.exports = {
   getAllStudents,
+  getByStudentId,
   addStudent,
   editStudent,
   deleteStudent,
