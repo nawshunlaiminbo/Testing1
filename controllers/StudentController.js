@@ -82,10 +82,14 @@ const deleteStudent = async (req, res) => {
       res.status(500).json("Error : " + err);
     });
 };
+const removeStudent = async (req, res) => {
+  res.status(200).json("REMOVE");
+};
 module.exports = {
   getAllStudents,
   getByStudentId,
   addStudent,
   editStudent,
   deleteStudent,
+  removeStudent,
 };
