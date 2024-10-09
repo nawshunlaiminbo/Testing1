@@ -48,24 +48,6 @@ const addStudent = async (req, res) => {
       return res.status(400).json(err.message);
     });
 };
-const removeStudent = async (req, res) => {
-  await studentdata
-    .findByPk(req.params.id)
-   .then((student) => {
-      if (student!= null) {
-        return student.destroy();
-      } else {
-        return res.status(404).json("Student not found.");
-      }
-    })
-   .then(() => {
-      res.status(200).json("Student deleted Successfully.");
-    })
-   .catch((err) => {
-      res.status(500).json("Error" + err.message);
-    });
-};
-
 
 const editStudent = async (req, res) => {
   await studentdata
@@ -107,5 +89,4 @@ module.exports = {
   addStudent,
   editStudent,
   deleteStudent,
-  removeStudent,
 };
