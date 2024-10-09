@@ -106,4 +106,5 @@ module.exports = {
   addStudent,
   editStudent,
   deleteStudent,
+removeStudent
 };
