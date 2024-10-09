@@ -100,11 +100,12 @@ const deleteStudent = async (req, res) => {
       res.status(500).json("Error : " + err);
     });
 };
+
 module.exports = {
   getAllStudents,
   getByStudentId,
   addStudent,
   editStudent,
   deleteStudent,
-  removeStudent
+  removeStudent,
 };
